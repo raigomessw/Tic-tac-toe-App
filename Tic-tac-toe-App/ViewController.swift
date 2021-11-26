@@ -26,7 +26,12 @@ class ViewController: UIViewController {
         guard !nameField1.text!.trimmingCharacters(in: .whitespaces).isEmpty
                 && !nameField2.text!.trimmingCharacters(in: .whitespaces).isEmpty else {return}
         
-        let controller = storyboard?.instantiateViewController(identifier: "gameScene")
+        let controller = storyboard?.instantiateViewController(identifier: "gameScene") as! GameViewController
+        controller.player1Name = nameField1.text
+        controller.player2Name = nameField2.text
+        controller.modalTransitionStyle = .flipHorizontal // Efeito de flip para entrar na tela do jogo apos clikar em jogar
+        controller.modalPresentationStyle = .fullScreen
+        self.present(controller, animated: true, completion: nil)
         
         
     }
