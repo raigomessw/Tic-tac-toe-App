@@ -333,6 +333,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fh6-p2-GNJ">
+                                <rect key="frame" x="341" y="57" width="64" height="54"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="close">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="closeBottonClicked:" destination="t57-jX-49W" eventType="touchUpInside" id="HHI-FX-B4o"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zBU-2Y-5H2"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -342,6 +353,7 @@
                             <constraint firstItem="bEE-hq-jKW" firstAttribute="top" secondItem="ijf-pa-grY" secondAttribute="top" id="HFB-Xt-2Va"/>
                             <constraint firstItem="QaV-WL-Qtw" firstAttribute="leading" secondItem="CYT-qQ-1ag" secondAttribute="leading" id="QFl-lL-cKm"/>
                             <constraint firstItem="bEE-hq-jKW" firstAttribute="bottom" secondItem="ijf-pa-grY" secondAttribute="bottom" id="Wfy-Z2-JhD"/>
+                            <constraint firstItem="zBU-2Y-5H2" firstAttribute="trailing" secondItem="Fh6-p2-GNJ" secondAttribute="trailing" constant="9" id="atg-Bk-PvE"/>
                             <constraint firstItem="bEE-hq-jKW" firstAttribute="trailing" secondItem="rnc-oi-49J" secondAttribute="trailing" id="b6g-MS-OzR"/>
                             <constraint firstItem="JYj-Wn-Dmu" firstAttribute="centerY" secondItem="zBU-2Y-5H2" secondAttribute="centerY" id="bv9-ed-7pQ"/>
                             <constraint firstItem="JYj-Wn-Dmu" firstAttribute="width" secondItem="jjC-9d-ukb" secondAttribute="width" multiplier="0.9" id="c0O-Mf-cBk"/>
@@ -349,6 +361,7 @@
                             <constraint firstItem="QaV-WL-Qtw" firstAttribute="firstBaseline" secondItem="rnc-oi-49J" secondAttribute="baseline" id="d3x-G7-9be"/>
                             <constraint firstItem="QaV-WL-Qtw" firstAttribute="centerX" secondItem="7ZZ-No-pwb" secondAttribute="centerX" id="dM9-jT-NeF"/>
                             <constraint firstItem="bEE-hq-jKW" firstAttribute="leading" secondItem="rnc-oi-49J" secondAttribute="leading" id="dVA-qN-nPT"/>
+                            <constraint firstItem="Fh6-p2-GNJ" firstAttribute="top" secondItem="zBU-2Y-5H2" secondAttribute="top" constant="13" id="dYq-an-SaQ"/>
                             <constraint firstItem="bEE-hq-jKW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ijf-pa-grY" secondAttribute="trailing" constant="8" symbolic="YES" id="eVT-pk-r0Z"/>
                             <constraint firstItem="rnc-oi-49J" firstAttribute="top" secondItem="bEE-hq-jKW" secondAttribute="bottom" constant="7" id="gzR-Ig-tfW"/>
                             <constraint firstItem="7ZZ-No-pwb" firstAttribute="centerX" secondItem="zBU-2Y-5H2" secondAttribute="centerX" constant="-143.25" id="hDH-aM-AOH"/>
@@ -386,6 +399,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="close" width="40" height="40"/>
         <image name="tictacsvg" width="1200" height="1067"/>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

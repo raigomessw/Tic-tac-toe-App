@@ -82,13 +82,16 @@ class GameViewController: UIViewController {
         addToBoard(sender)
         
         if checkForVictory(CROSS){
-            playerScore1Lbl.text = String((Int(playerScore1Lbl.text ?? "0") ?? 0) + 1)// Converte String em Int e depois Int em Strinb
-            resultAlert(title: "Crosses Win!")
-            
+            playerScore1Lbl.text = String((Int(playerScore1Lbl.text ?? "0") ?? 0) + 1)
+            resultAlert(title: "Nought Win!")
+        
         }
+        
+        
         if checkForVictory(NOUGHT){
             playerScore2Lbl.text = String((Int(playerScore2Lbl.text ?? "0") ?? 0) + 1)
-            resultAlert(title: "Nought Win!")
+            resultAlert(title: "Cross Win!")
+            
             
         }
         
@@ -96,7 +99,13 @@ class GameViewController: UIViewController {
             resultAlert(title: "Draw")
             
         }
+        
     }
+    @IBAction func closeBottonClicked(_ sender: UIButton) {//Funcao para voltar a tela principal de player
+        dismiss(animated: true, completion: nil)
+    }
+    
+
     
     func checkForVictory(_ s :String) -> Bool {
         
@@ -165,7 +174,6 @@ class GameViewController: UIViewController {
             turnLabel.text = player2Name
             turnLabel2.text = NOUGHT
         }
-        
         
         currentTurn = firstTurn
     }
