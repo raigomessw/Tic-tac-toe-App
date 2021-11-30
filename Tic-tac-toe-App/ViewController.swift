@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         
+        
         //turnPlayerName = playerName1 playerName2
     }
     @IBAction func startBtnClicked(_ sender: UIButton) {
