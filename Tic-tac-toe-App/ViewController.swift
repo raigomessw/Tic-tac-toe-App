@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         
         
         
-        //turnPlayerName = playerName1 playerName2
+        
     }
     @IBAction func startBtnClicked(_ sender: UIButton) {
         guard !nameField1.text!.trimmingCharacters(in: .whitespaces).isEmpty
@@ -30,19 +30,20 @@ class ViewController: UIViewController {
         let controller = storyboard?.instantiateViewController(identifier: "gameScene") as! GameViewController
         controller.player1Name = nameField1.text
         controller.player2Name = nameField2.text
-        controller.modalTransitionStyle = .flipHorizontal // Efeito de flip para entrar na tela do jogo apos clikar em jogar
+        controller.modalTransitionStyle = .flipHorizontal // Flip effect to enter game screen after clicking play
         controller.modalPresentationStyle = .fullScreen
         self.present(controller, animated: true, completion: nil)
         
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) { // Ler o nome que for colocar na caixa de texto
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) { // Read the name you put in the text box
         if let controller = segue.destination as? GameViewController{
             controller.player1Name = nameField1.text
             controller.player2Name = nameField2.text
         }
     }
+    
     
    /* override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "goToGameVc"{

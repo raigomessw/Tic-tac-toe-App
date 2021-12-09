@@ -50,7 +50,7 @@ class GameViewController: UIViewController {
     var board = [UIButton]()
     
     
-    override func viewDidLoad() {// Funcao para mostrar o nome do jogador
+    override func viewDidLoad() { // Function to show player name
         super.viewDidLoad()
         
         
@@ -63,7 +63,7 @@ class GameViewController: UIViewController {
         
     
     }
-    func initBoard(){// Fucao para iniciar o board
+    func initBoard(){ // Function to start the board and place new elements like X or O
         
         board.append(a1)
         board.append(a2)
@@ -82,7 +82,7 @@ class GameViewController: UIViewController {
         addToBoard(sender)
         
         if checkForVictory(CROSS){
-            playerScore1Lbl.text = String((Int(playerScore1Lbl.text ?? "0") ?? 0) + 1)
+            playerScore1Lbl.text = String((Int(playerScore1Lbl.text ?? "0") ?? 0) + 1) ///Convert String to Int Score
             resultAlert(title: "Nought Win!")
         
         }
@@ -101,13 +101,14 @@ class GameViewController: UIViewController {
         }
         
     }
-    @IBAction func closeBottonClicked(_ sender: UIButton) {//Funcao para voltar a tela principal de player
+    //Function to return to main player screen
+    @IBAction func closeBottonClicked(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
 
     
-    func checkForVictory(_ s :String) -> Bool {
+    func checkForVictory(_ s :String) -> Bool { //Logic to win the game
         
         //Horizontal Victory
         if thisSymbol(a1, s) && thisSymbol(a2, s) && thisSymbol(a3, s){
@@ -142,21 +143,22 @@ class GameViewController: UIViewController {
         return false
     }
     
+    //This func returne the simbol X or O
     func thisSymbol(_ button: UIButton, _ symbol: String) -> Bool{
         
         return button.title(for: .normal) == symbol
     }
     
-    func resultAlert(title: String){// Funcao para mostrar o vencedor e o final do programa
+    func resultAlert(title: String){// Function to show the winner at the end of the match
         
-        let message = "\nNoughts:" + String(Int(playerScore1Lbl.text ?? "0") ?? 0) + "\n\nCrosses:" + String(Int(playerScore2Lbl.text ?? "0") ?? 0)
+        let message = "\nNoughts: " + String(Int(playerScore1Lbl.text ?? "0") ?? 0) + "\n\nCrosses:" + String(Int(playerScore2Lbl.text ?? "0") ?? 0)
         let ac = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "Reset", style: .default, handler: {(_) in
             self.resetBoard()}))
         self.present(ac, animated: true)
     }
     
-
+    // Function to reset the turn of player
     func resetBoard(){
         for button in board{
             button.setTitle(nil, for: .normal)
@@ -179,10 +181,10 @@ class GameViewController: UIViewController {
     }
     
     
-    func fullBoard()->Bool{ // Fucao para verificar se e Enpaty o espaco do Board
+    func fullBoard()->Bool{ // Function to check if Board space is empathy
         
         for button in board{
-            if button.title(for: .normal) == nil{ //Se e empaty vai retornal false
+            if button.title(for: .normal) == nil{ // If and empathy will return false
                 return false
             }
         }
@@ -190,6 +192,7 @@ class GameViewController: UIViewController {
         return true
     }
     
+    // Function to show the turn of player
     func addToBoard(_ sender: UIButton){
         if(sender.title(for: .normal) == nil){
             
