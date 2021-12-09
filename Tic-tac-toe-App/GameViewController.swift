@@ -42,8 +42,11 @@ class GameViewController: UIViewController {
     var firstTurn = Turn.Cross
     var currentTurn = Turn.Cross
     
-    var NOUGHT = "X"
-    var CROSS =  "O"
+   // var NOUGHT = "X"
+   // var CROSS =  "O"
+    
+    var NOUGHT = "O"
+    var CROSS = "X"
     
 
     
@@ -83,14 +86,14 @@ class GameViewController: UIViewController {
         
         if checkForVictory(CROSS){
             playerScore1Lbl.text = String((Int(playerScore1Lbl.text ?? "0") ?? 0) + 1) ///Convert String to Int Score
-            resultAlert(title: "Nought Win!")
+            resultAlert(title: "Cross Win!")
         
         }
         
         
         if checkForVictory(NOUGHT){
             playerScore2Lbl.text = String((Int(playerScore2Lbl.text ?? "0") ?? 0) + 1)
-            resultAlert(title: "Cross Win!")
+            resultAlert(title: "Nought Win!")
             
             
         }
@@ -101,6 +104,7 @@ class GameViewController: UIViewController {
         }
         
     }
+    
     //Function to return to main player screen
     @IBAction func closeBottonClicked(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
@@ -151,7 +155,7 @@ class GameViewController: UIViewController {
     
     func resultAlert(title: String){// Function to show the winner at the end of the match
         
-        let message = "\nNoughts: " + String(Int(playerScore1Lbl.text ?? "0") ?? 0) + "\n\nCrosses:" + String(Int(playerScore2Lbl.text ?? "0") ?? 0)
+        let message = "\n\nCrosses: " + String(Int(playerScore1Lbl.text ?? "0") ?? 0) + "\n\nNoughts: " + String(Int(playerScore2Lbl.text ?? "0") ?? 0)
         let ac = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "Reset", style: .default, handler: {(_) in
             self.resetBoard()}))
@@ -192,7 +196,7 @@ class GameViewController: UIViewController {
         return true
     }
     
-    // Function to show the turn of player
+    // Function to show the turn of player x or o
     func addToBoard(_ sender: UIButton){
         if(sender.title(for: .normal) == nil){
             
